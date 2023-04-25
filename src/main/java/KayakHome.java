@@ -9,6 +9,13 @@ import java.time.Duration;
 public class KayakHome extends KayakBase {
 
     private static final By stayButton = By.xpath("//a[@aria-label='Search for hotels']//*[name()='svg']");
+    private static final By staySearch = By.cssSelector("input[placeholder='Enter a city, hotel, airport, address or landmark']");
+    private static final By stayData = By.cssSelector("span[aria-label='Start date calendar input']");
+    private static final By stayPirmaData = By.cssSelector("div[aria-label='Friday April 28, 2023']");
+    //private static final By stayData2 =By.cssSelector("span[aria-label='End date calendar input']");
+   // private static final By stayAntraData = By.cssSelector("span[aria-label='Thursday April 30th']");
+    private static final By stayPaieska = By.cssSelector("button[aria-label='Search']");
+    private static final By viewDeal = By.xpath("//*[@id=\"uO9-\"]/div/div[1]/div[1]/div/div[3]/div[3]/div/button");
 
     public KayakHome(WebDriver driver) {
         super(driver);
@@ -23,48 +30,50 @@ public class KayakHome extends KayakBase {
         try {
             WebElement stay = wait.until(ExpectedConditions.visibilityOfElementLocated(stayButton));
             stay.click();
+            System.out.println(1);
+
             Thread.sleep(5000);
+
+            WebElement kaSearchBox = wait.until(ExpectedConditions.elementToBeClickable(staySearch));
+            kaSearchBox.sendKeys("daugirdas");
+            Thread.sleep(5000);
+            System.out.println(2);
+
+            WebElement dataPrad = wait.until(ExpectedConditions.visibilityOfElementLocated(stayData));
+            dataPrad.click();
+            Thread.sleep(5000);
+            System.out.println(3);
+
+            WebElement pirmaaData = wait.until(ExpectedConditions.elementToBeClickable(stayPirmaData));
+            pirmaaData.click();
+            Thread.sleep(6000);
+            System.out.println(4);
+
+//            WebElement dataPab = wait.until(ExpectedConditions.visibilityOfElementLocated(stayData2));
+//            dataPab.click();
+//            Thread.sleep(5000);
+
+//            WebElement antraData =wait.until(ExpectedConditions.visibilityOfElementLocated(stayAntraData));
+//            antraData.click();
+//            Thread.sleep(5000);
+
+            WebElement mygtukas = wait.until(ExpectedConditions.elementToBeClickable(stayPaieska));
+            mygtukas.click();
+            Thread.sleep(7000);
+            System.out.println(5);
+
+            WebElement ziuretiPasiulyma = wait.until(ExpectedConditions.elementToBeClickable(viewDeal));
+            ziuretiPasiulyma.click();
+            System.out.println(6);
+
+            Thread.sleep(7000);
+
+          //  WebElement bookingTikrinimas =wait.until(ExpectedConditions.visibilityOfElementLocated(stayBooking));
+
+         //   Thread.sleep(5000);
+
         } catch (Exception e) {
             System.out.println("neveikia");
         }
-
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        try {
-//            Thread.sleep(5000);
-//        WebElement stays = driver.findElement(By.cssSelector("#KTpy > div > div.MvE2.MvE2-v2.MvE2-responsive > nav:nth-child(3) > div > a:nth-child(2)"));
-//            wait.until(ExpectedConditions.elementToBeClickable(stays));
-//        stays.click();
-//            Thread.sleep(5000);
-
-//        WebElement paieskosLaukas = driver.findElement(By.cssSelector("input[placeholder='Enter a city, hotel, airport, address or landmark']"));
-//                   wait.until(ExpectedConditions.elementToBeClickable(paieskosLaukas));
-//        paieskosLaukas.sendKeys("cc");
-//
-//            Thread.sleep(1000);
-//        WebElement dataPradzios = driver.findElement(By.xpath("//span[@aria-label='Start date calendar input']"));
-//                    wait.until(ExpectedConditions.elementToBeClickable(dataPradzios));
-//        dataPradzios.click();
-//
-//        WebElement pradziosPasirinkimas = driver.findElement(By.xpath("//body/div/div[contains(@class,'YSUE YSUE-mod-visible YSUE-mod-animate YSUE-mod-layer-default YSUE-mod-position-fixed')]/div[contains(@role,'dialog')]/div[contains(@class,'dDYU-viewport')]/div[contains(@class,'dDYU-content')]/div[contains(@class,'dDYU-body')]/div[contains(@class,'tMMr tMMr-pres-default')]/div[contains(@class,'tMMr-content')]/div[contains(@class,'c2MdE c2MdE-mod-verticalScroll')]/div[contains(@aria-label,'Start date calendar input Use left and right arrow keys to change day. Use up and down arrow keys to change week.')]/div[contains(@class,'ATGJ-monthWrapper')]/div[2]/div[2]/div[3]"));
-//                    wait.until(ExpectedConditions.elementToBeClickable(pradziosPasirinkimas));
-//        pradziosPasirinkimas.click();
-//
-//        WebElement dataPabaigos = driver.findElement(By.xpath("//span[@aria-label='End date calendar input']"));
-//                    wait.until(ExpectedConditions.elementToBeClickable(dataPabaigos));
-//        dataPabaigos.click();
-//
-//        WebElement pabaigosPasirinkimas = driver.findElement(By.xpath("//div[contains(@aria-label,'Tuesday May 9, 2023')]"));
-//            wait.until(ExpectedConditions.elementToBeClickable(pabaigosPasirinkimas));
-//            pabaigosPasirinkimas.click();
-//
-//
-//        WebElement ieskoti = driver.findElement(By.xpath("//button[contains(@aria-label,'Search')]"));
-//            wait.until(ExpectedConditions.elementToBeClickable(ieskoti));
-//            ieskoti.click();
-//    } catch(Exception e){
-//            System.out.println("neveikia");
-//        }
-//
-//    }
     }
 }

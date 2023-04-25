@@ -12,10 +12,9 @@ public class KayakTest extends KayakBase {
         kayakHome = new KayakHome(driver);
     }
 
-
     @BeforeClass
     public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/Raimonda/Downloads/chromedriver/chromedriver");
+        System.setProperty("Webdriver.chrome.driver", "/Users/Raimonda/Downloads/chromedriver/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         KayakBase.driver = new ChromeDriver(options);
@@ -24,8 +23,8 @@ public class KayakTest extends KayakBase {
 
     @Test
     public void Testas() {
-        kayakHome.goTo();
-        kayakHome.hotelioPaieska();
+        KayakHome.goTo();
+        KayakHome.hotelioPaieska();
     }
 
     @AfterClass
