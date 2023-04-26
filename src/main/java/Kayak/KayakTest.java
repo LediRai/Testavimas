@@ -1,3 +1,6 @@
+package Kayak;
+
+import Kayak.KayakBase;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

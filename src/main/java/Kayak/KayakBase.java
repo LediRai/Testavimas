@@ -1,3 +1,5 @@
+package Kayak;
+
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;

@@ -1,3 +1,5 @@
+package Pigu;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-//public class PiguMegstamiausi extends PiguPrisijungimas {
+//public class Pigu.PiguMegstamiausi extends Pigu.PiguPrisijungimas {
 public class PiguMegstamiausi extends PiguHomePage {
     private static WebDriver driver;
 
