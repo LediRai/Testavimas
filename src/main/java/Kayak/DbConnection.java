@@ -4,49 +4,82 @@ import java.sql.*;
 public class DbConnection {
 
     public static void main(String[] args) {
-//        DbConnection tableCreation = new DbConnection();
-//        tableCreation.
-
         //pirmas try prisijungimas tikrinamas, ar nera klaidu
         String url = "jdbc:postgresql://localhost/seleniumData";
         String user = "postgres";
-        String password = "morengas1";
+        String password = "labas123";
 
         try {
-            Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
-
+            System.out.println("1");
+            Connection connection = DriverManager.getConnection(url, user, password);
+//            Statement stmt = connection.createStatement();
             String hotelsTable = "CREATE TABLE products " +
                     "(id SERIAL PRIMARY KEY," +
-                    "hotel_title VARCHAR(250)" +
-                    "price INT" +
+                    "hotel_title VARCHAR(250)," +
+                    "price INT," +
                     "address VARCHAR(250)) ";
-
-            stmt.executeUpdate(hotelsTable);
-            System.out.println("Table created successfully!");
-
+            System.out.println("1.1");
+//            stmt.executeUpdate(hotelsTable);
+            try (Statement statement = connection.createStatement()) {
+                statement.executeUpdate(hotelsTable);
+                System.out.println("Table created successfully");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-         // return null;
     }
 
-    public static PreparedStatement databaseCon(String sql) {
+    public static PreparedStatement databaseConn (String sql){
         String url = "jdbc:postgresql://localhost/seleniumData";
         String user = "postgres";
-        String password = "morengas1";
-        //connection to data base
-        try {
+        String password = "labas123";
+
+        try{
             Connection conn = DriverManager.getConnection(url, user, password);
             PreparedStatement pstmt = conn.prepareStatement(sql);
             return pstmt;
-        } catch (
-                SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
             return null;
-
         }
     }
+
+    public static void testDbConnection() {
+        String url = "jdbc:postgresql://localhost/seleniumData";
+        String user = "postgres";
+        String password = "labas123";
+
+            try (Connection conn = DriverManager.getConnection(url, user, password)) {
+                System.out.println("Connection to database established.");
+            } catch (SQLException e) {
+                System.err.println("Error connecting to database: " + e.getMessage());
+            }
+    }
+
+
+//        public static void main(String[]args){
+//            String url = "jdbc:postgresql://localhost/seleniumData";
+//            String user = "postgres";
+//            String password = "123456";
+//            try {
+//                Connection con = DriverManager.getConnection(url, user, password);
+//                Statement stmt = con.createStatement();
+//
+//                String hotelsTable = "CREATE TABLE products " +
+//                        "(id SERIAL PRIMARY KEY, " +
+//                        "hotel_title VARCHAR(250), " +
+//                        "price INT, " +
+//                        "address VARCHAR(250))";
+//
+//                stmt.executeUpdate(hotelsTable);
+//                System.out.println("Table created successfully!");
+//
+//            } catch(SQLException e){
+//                e.printStackTrace();
+//            }
+//
+//        }
+
 }
 
 

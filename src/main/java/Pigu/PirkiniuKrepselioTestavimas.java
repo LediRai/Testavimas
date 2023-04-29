@@ -14,10 +14,10 @@ public class PirkiniuKrepselioTestavimas {
         driver.manage().window().maximize();
 //       PirkiniuKrepselis test1 = new PirkiniuKrepselis(driver);
 //        test1.addToCard();
-//        Registracija test2 =new Registracija(driver);
+//        RDE.Registracija test2 =new RDE.Registracija(driver);
 //        test2.ieiti();
 //        test2.registruotis();
-//        Login test3 = new Login(driver);
+//        RDE.Login test3 = new RDE.Login(driver);
 //        test3.loginWindow();
 
         //Public stacit void setUp{

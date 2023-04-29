@@ -1,3 +1,7 @@
+package RDE;
+
+import RDE.Login;
+import RDE.Registracija;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -31,8 +35,8 @@ public class TestRda {
     }
 //    @Test
 //    public void registruotis(){
-//        Registracija.ieiti();
-//        Registracija.registruotis();
+//        RDE.Registracija.ieiti();
+//        RDE.Registracija.registruotis();
 //    }
 
     @Test
