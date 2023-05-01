@@ -26,9 +26,9 @@ public class KayakProdukts extends KayakBase {
     private static final By productLinks = By.className("FLpo-big-name");
     private static final By hotelPrice = By.cssSelector("span[class='c3xth-price'] span:nth-child(1)");
     //("zV27-price");
-    private static final By hotelAdddress= By.className("c3xth-address");
+    private static final By hotelAdddress = By.className("c3xth-address");
     private static final By hotelImg = By.className("f800-image-container");
-            // ("e9fk-photo");
+    // ("e9fk-photo");
     private Alert priceElement;
 
     public KayakProdukts(WebDriver driver) {
@@ -77,6 +77,19 @@ public class KayakProdukts extends KayakBase {
 //            String title = tittle.getText();
 //            System.out.println(title);
 //        }
+        //        try {
+//            String sql = "INSERT INTO products(hotel_title) VALUES(?)" ;
+//            PreparedStatement pstmt = DbConnection.databaseConn(sql);
+//            DbConnection.testDbConnection();
+//            for (WebElement title : productList) {
+//                assert false;
+//                pstmt.setString(1, title.getText());
+//                pstmt.executeUpdate();
+//            }
+//            System.out.println("Data insert successfully!");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         List<WebElement> priceList = driver.findElements(hotelPrice);
         System.out.println(priceList.size());
@@ -89,6 +102,20 @@ public class KayakProdukts extends KayakBase {
 //            int priceValue = Integer.parseInt(price.replaceAll("\\D+",""));
 //            System.out.println("Product " + (i + 1) + ": " + title + " - " + priceValue);
 //        }
+        // try {
+//            String sql = "INSERT INTO products(price) VALUES(?)";
+//            PreparedStatement pstmt = DbConnection.databaseConn(sql);
+//            for (WebElement price : priceList){
+//                assert false;
+//                String titlestring = price.getText();
+//                int priceValue = Integer.parseInt(titlestring.replaceAll("\\D+",""));
+//                pstmt.setInt(1,priceValue);
+//                pstmt.executeUpdate();
+//            }
+//            System.out.println("Data insert successfully!");
+//        }catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         // hotelio paveiksliukas
         List<WebElement> hotelPaveiksliukas = driver.findElements(hotelImg);
@@ -98,7 +125,6 @@ public class KayakProdukts extends KayakBase {
 //            System.out.println(src);
 //        }
 
-        //  List<WebElement> linkList = driver.findElements(productLinks);
 
         List<WebElement> linkList = driver.findElements(productLinks);
 //        System.out.println(priceList.size());
@@ -126,35 +152,6 @@ public class KayakProdukts extends KayakBase {
 //            linkList = driver.findElements(productLinks);
 //        }
 
-//        try {
-//            String sql = "INSERT INTO products(hotel_title) VALUES(?)" ;
-//            PreparedStatement pstmt = DbConnection.databaseConn(sql);
-//            DbConnection.testDbConnection();
-//            for (WebElement title : productList) {
-//                assert false;
-//                pstmt.setString(1, title.getText());
-//                pstmt.executeUpdate();
-//            }
-//            System.out.println("Data insert successfully!");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        try {
-//            String sql = "INSERT INTO products(price) VALUES(?)";
-//            PreparedStatement pstmt = DbConnection.databaseConn(sql);
-//            for (WebElement price : priceList){
-//                assert false;
-//                String titlestring = price.getText();
-//                int priceValue = Integer.parseInt(titlestring.replaceAll("\\D+",""));
-//                pstmt.setInt(1,priceValue);
-//                pstmt.executeUpdate();
-//            }
-//            System.out.println("Data insert successfully!");
-//        }catch (SQLException e) {
-//            e.printStackTrace();
-//        }
 
         //VEIKIANTIS
         try {
@@ -162,7 +159,6 @@ public class KayakProdukts extends KayakBase {
             PreparedStatement pstmt = DbConnection.databaseConn(sql);
             DbConnection.testDbConnection();
             for (int i = 0; i < linkList.size(); i++) {
-                System.out.println("***********");
                 driver.navigate().to(linkList.get(i).getAttribute("href"));
                 String hotelName = driver.findElement(products).getText();
 
@@ -179,6 +175,7 @@ public class KayakProdukts extends KayakBase {
                 WebElement imageContainer = driver.findElement(By.className("f800-image-container"));
                 String styleAttribute = imageContainer.getAttribute("style");
                 String imageUrl = styleAttribute.substring(styleAttribute.indexOf("url(") + 4, styleAttribute.indexOf(")"));
+
                 pstmt.setString(1, hotelName);
                 pstmt.setInt(2, priceValue);
                 pstmt.setString(3, hotelAddress);
@@ -186,12 +183,11 @@ public class KayakProdukts extends KayakBase {
                 pstmt.executeUpdate();
                 driver.navigate().back();
                 linkList = driver.findElements(productLinks);
-
             }
             System.out.println("Data inserted successfully!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-    }}
+    }
+}
 
