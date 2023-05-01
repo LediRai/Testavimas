@@ -12,14 +12,15 @@ public class DbConnection {
         try {
             System.out.println("1");
             Connection connection = DriverManager.getConnection(url, user, password);
-//            Statement stmt = connection.createStatement();
+            Statement stmt = connection.createStatement();
             String hotelsTable = "CREATE TABLE products " +
                     "(id SERIAL PRIMARY KEY," +
                     "hotel_title VARCHAR(250)," +
                     "price INT," +
-                    "address VARCHAR(250)) ";
+                    "address VARCHAR(250),"+
+                    "image VARCHAR(250))" ;
             System.out.println("1.1");
-//            stmt.executeUpdate(hotelsTable);
+            stmt.executeUpdate(hotelsTable);
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(hotelsTable);
                 System.out.println("Table created successfully");
@@ -60,7 +61,7 @@ public class DbConnection {
 //        public static void main(String[]args){
 //            String url = "jdbc:postgresql://localhost/seleniumData";
 //            String user = "postgres";
-//            String password = "123456";
+//            String password = "labas123";
 //            try {
 //                Connection con = DriverManager.getConnection(url, user, password);
 //                Statement stmt = con.createStatement();
@@ -69,7 +70,8 @@ public class DbConnection {
 //                        "(id SERIAL PRIMARY KEY, " +
 //                        "hotel_title VARCHAR(250), " +
 //                        "price INT, " +
-//                        "address VARCHAR(250))";
+////                        "address VARCHAR(250))"+
+//                        "image BYTEA)" ;
 //
 //                stmt.executeUpdate(hotelsTable);
 //                System.out.println("Table created successfully!");

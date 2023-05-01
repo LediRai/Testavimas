@@ -1,3 +1,5 @@
+package savarankiskai;
+
 public class pasiruosimasRytojui {   //
     String paparagis;
     int metai;

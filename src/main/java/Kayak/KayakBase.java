@@ -17,5 +17,8 @@ public class KayakBase {
     public static void goTo() {
         driver.get("https://www.kayak.com/");
     }
+
+    protected void KayakBase() {
+    }
 // sioje klaseje viskas rasoma kas susije su draiveriais
 }

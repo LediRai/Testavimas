@@ -16,7 +16,7 @@ public class WebTesting {
         WebElement cookieNotice = driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div"));
         cookieNotice.click();  //kintamajam priskirtas elementas,
 
-        String[] searchTerms = {"Java", "Kaunas", "Masina"};
+        String[] searchTerms = {"Java", "Kaunas", "tevineKlase2.Masina"};
         WebElement searchBox; //kintamasis kuriam nieko nepriskiriam
         String term;
         searchBox = driver.findElement(By.xpath("//*[@id='APjFqb']"));

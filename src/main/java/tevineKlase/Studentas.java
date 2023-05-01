@@ -1,4 +1,6 @@
-public class Studentas extends Zmogus{ // dukterine klase
+package tevineKlase;
+
+public class Studentas extends Zmogus { // dukterine klase
     String universitetas;
 
     public Studentas(String zmogausVardas, int zmogausAmzius, String universitetas ){

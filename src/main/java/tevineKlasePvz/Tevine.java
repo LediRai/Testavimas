@@ -1,3 +1,5 @@
+package tevineKlasePvz;
+
 public class Tevine {
     int ratuSkaicius;
 

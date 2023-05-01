@@ -1,4 +1,6 @@
-public class SportineMasina extends Masina{
+package tevineKlase2;
+
+public class SportineMasina extends Masina {
     int didziausiasGreitis;
 
     public SportineMasina(String tpMarke, String tpModelis, int tpMetai, int tpDuruSkaicius, int tpMaxGreitis){

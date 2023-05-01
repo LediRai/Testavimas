@@ -1,3 +1,5 @@
+package tevineKlasePvz;
+
 import org.openqa.selenium.WebDriver;
 
 public class BasePage8 {

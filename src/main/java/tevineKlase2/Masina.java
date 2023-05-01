@@ -1,3 +1,7 @@
+package tevineKlase2;
+
+import tevineKlase2.Transportas;
+
 public class Masina extends Transportas {
     int dureliuSkaicius;
 

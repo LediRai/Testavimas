@@ -1,3 +1,5 @@
+package tevineKlase;
+
 public class Zmogus { //tevine klase
 
     String vardas;

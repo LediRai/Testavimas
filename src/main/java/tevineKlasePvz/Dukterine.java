@@ -1,4 +1,6 @@
-public class Dukterine extends Tevine{
+package tevineKlasePvz;
+
+public class Dukterine extends Tevine {
 
          int galia;
 

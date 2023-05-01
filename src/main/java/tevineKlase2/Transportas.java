@@ -1,3 +1,5 @@
+package tevineKlase2;
+
 public class Transportas {
     String marke;
     String modelis;
