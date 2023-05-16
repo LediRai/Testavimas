@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.IOException;
+
 public class KayakTest extends KayakBase {
     private KayakHome kayakHome;
 
@@ -25,13 +27,13 @@ public class KayakTest extends KayakBase {
     }
 
     @Test
-    public void Testas() {
+    public void Testas() throws IOException {
         KayakHome.goTo();
         KayakHome.hotelioPaieska();
     }
 
     @AfterClass
-    public static void tearDown() { //tearDown
+    public static void tearDown() {
           driver.quit();
     }
 }

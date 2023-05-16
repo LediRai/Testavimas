@@ -8,8 +8,10 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -94,12 +96,12 @@ public class KayakProdukts extends KayakBase {
         List<WebElement> priceList = driver.findElements(hotelPrice);
         System.out.println(priceList.size());
         // hotelio kaina
-//        for (int i = 0; i < productList.size(); i++) {
-//            WebElement titleElement = productList.get(i);
-//            String title = titleElement.getText();
-//            WebElement priceElement = priceList.get(i);
-//            String price = priceElement.getText();
-//            int priceValue = Integer.parseInt(price.replaceAll("\\D+",""));
+//        for (int i = 0; i < productList.size(); i++) { //kiek turim kainu tiek ciklas kartu kartosis
+//            WebElement titleElement = productList.get(i);// is produktu saraso istraukiamas viena produkta
+//            String title = titleElement.getText();// gaunamas produkto pavadinimas string formatu
+//            WebElement priceElement = priceList.get(i); // cia istraukima viena kaina
+//            String price = priceElement.getText();// kaina gaunama string formatu
+//            int priceValue = Integer.parseInt(price.replaceAll("\\D+","")); //turima kaina $94, $ yra naikinamas stringas verciamas int
 //            System.out.println("Product " + (i + 1) + ": " + title + " - " + priceValue);
 //        }
         // try {
@@ -127,30 +129,30 @@ public class KayakProdukts extends KayakBase {
 
 
         List<WebElement> linkList = driver.findElements(productLinks);
-//        System.out.println(priceList.size());
-//        for (int i = 0; i < linkList.size(); i++) {
-//            System.out.println("***********");
-//            driver.navigate().to(linkList.get(i).getAttribute("href"));
-//
-//            String hotelName = driver.findElement(products).getText();
-//            System.out.println(hotelName);
-//            List<WebElement> elements = driver.findElements(hotelAdddress);
-//            if (elements.size() > 0) {
-//                String address = driver.findElement(hotelAdddress).getText();
-//                System.out.println(address);
-//            } else {
-//                System.out.println("Adresas nerastas");
-//            }
-//            String priceString = driver.findElement(hotelPrice).getText();
-//            System.out.println(priceString);
-//            int priceValue = Integer.parseInt(priceString.replaceAll("\\D+", ""));
-//            WebElement imageContainer = driver.findElement(By.className("f800-image-container"));
-//            String styleAttribute = imageContainer.getAttribute("style");
-//            String imageUrl = styleAttribute.substring(styleAttribute.indexOf("url(") + 4, styleAttribute.indexOf(")"));
-//            System.out.println(imageUrl);
-//            driver.navigate().back();
-//            linkList = driver.findElements(productLinks);
-//        }
+        System.out.println(priceList.size());
+        for (int i = 0; i < linkList.size(); i++) {
+            System.out.println("***********");
+            driver.navigate().to(linkList.get(i).getAttribute("href"));
+
+            String hotelName = driver.findElement(products).getText();
+            System.out.println(hotelName);
+            List<WebElement> elements = driver.findElements(hotelAdddress);
+            if (elements.size() > 0) {
+                String address = driver.findElement(hotelAdddress).getText();
+                System.out.println(address);
+            } else {
+                System.out.println("Adresas nerastas");
+            }
+            String priceString = driver.findElement(hotelPrice).getText();
+            System.out.println(priceString);
+            int priceValue = Integer.parseInt(priceString.replaceAll("\\D+", ""));
+            WebElement imageContainer = driver.findElement(By.className("f800-image-container"));
+            String styleAttribute = imageContainer.getAttribute("style");
+            String imageUrl = styleAttribute.substring(styleAttribute.indexOf("url(") + 4, styleAttribute.indexOf(")"));
+            System.out.println(imageUrl);
+            driver.navigate().back();
+            linkList = driver.findElements(productLinks);
+        }
 
 
         //VEIKIANTIS
@@ -188,6 +190,9 @@ public class KayakProdukts extends KayakBase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
+
 }
 

@@ -1,12 +1,15 @@
 package Kayak;
 
 import Kayak.KayakBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 public class KayakHome extends KayakBase {
@@ -28,7 +31,7 @@ public class KayakHome extends KayakBase {
         driver.get("https://www.kayak.com/");
     }
 
-    public static void hotelioPaieska() {
+    public static void hotelioPaieska() throws IOException { // IO input output
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
             WebElement stay = wait.until(ExpectedConditions.visibilityOfElementLocated(stayButton));
@@ -78,5 +81,8 @@ public class KayakHome extends KayakBase {
         } catch (Exception e) {
             System.out.println("neveikia");
         }
+        File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        Path destinationPath = Paths.get("screnchot.png");
+        Files.copy(screenshotFile.toPath(), destinationPath);
     }
 }

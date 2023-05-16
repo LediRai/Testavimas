@@ -20,7 +20,8 @@ public class WebTesting {
         WebElement searchBox; //kintamasis kuriam nieko nepriskiriam
         String term;
         searchBox = driver.findElement(By.xpath("//*[@id='APjFqb']"));
-        for (int i = 0; i<searchTerms.length; i++){    //pavyzdys  for (String term : searchTerms){
+        for
+        (int i = 0; i<searchTerms.length; i++){    //pavyzdys  for (String term : searchTerms){
             term = searchTerms[i];
             searchBox.sendKeys(term);
             searchBox.submit();
