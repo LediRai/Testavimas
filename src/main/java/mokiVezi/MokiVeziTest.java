@@ -25,10 +25,17 @@ public class MokiVeziTest extends MokiVeziBase {
         MokiVeziBase.driver = new ChromeDriver(options);
         MokiVeziBase.driver.manage().window().maximize();
     }
-    @Test
-    public void paspaudimas(){
-        MokiVeziIspardavimas.prekiuIspardavimas();
-    }
+
+//    @Test
+//    public void registracija(){
+//        MokiVeziUzsiregistruoti.registruotis();
+//    }
+
+//    @Test
+//    public void paspaudimas(){
+//        MokiVeziIspardavimas.prekiuIspardavimas();
+//    }
+
     @AfterClass
     public static void tearDown() {
         MokiVeziBase.driver.quit();

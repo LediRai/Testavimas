@@ -24,15 +24,36 @@ public class MokiVeziIspardavimas extends MokiVeziBase {
     private static final  By akcija = By.cssSelector("body > header > div.header-category-container.mt-4 > div > div > nav > div.col-9.header-categories__side.header-categories__side--left > a:nth-child(3) > span");
 
 
+    private static final By VisiPasiulymai = By.cssSelector("#product-item-3708272");
+    private static final By Nuolaidos = By.cssSelector(".product-card__img-container__discount");
+
     public static void prekiuIspardavimas() {
         WebDriverWait wait = new WebDriverWait(MokiVeziBase.driver, Duration.ofSeconds(5));
         WebElement listas = wait.until(ExpectedConditions.visibilityOfElementLocated(parduotuve));
         listas.click();
         WebElement ispardavimas = wait.until(ExpectedConditions.visibilityOfElementLocated(ispard));
         ispardavimas.click();
-        WebElement nuolaida1 = wait.until(ExpectedConditions.visibilityOfElementLocated(akcija));
-        nuolaida1.click();
+//        WebElement nuolaida1 = wait.until(ExpectedConditions.visibilityOfElementLocated(akcija));
+//        nuolaida1.click();
 
-    }
-}
+        List<WebElement> pasiulymai1 = driver.findElements(VisiPasiulymai);
+        System.out.println(pasiulymai1.size());
+        for (WebElement tittle : pasiulymai1) {
+            String title = tittle.getText();
+            System.out.println(title);
 
+        WebElement pasiulymai = wait.until(ExpectedConditions.visibilityOfElementLocated(VisiPasiulymai));
+        System.out.println(1);
+        if (pasiulymai.isDisplayed()) {
+            pasiulymai.click();
+        } else {
+            System.out.println("Elementas yra neaktyvus");
+        }
+//        List<WebElement> produktuNuolaidos = driver.findElements(Nuolaidos);
+//        for (WebElement nuolaidos : produktuNuolaidos) {
+//            String manoNuolaidos = nuolaidos.getText();
+//            System.out.println(manoNuolaidos);
+//        }
+
+        }
+    }}
